@@ -1,14 +1,14 @@
-# Start from the official Go base image
-FROM golang:1.20-alpine
+# Use the official Go image with version 1.23.0
+FROM golang:1.23.0
 
-# Set the Current Working Directory inside the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the source code into the container
-COPY . .
+# Copy the Go source code into the container
+COPY main.go .
 
-# Build the Go app
-RUN go build -o main .
+# Build the Go application
+RUN go build -o hello-world .
 
 # Command to run the executable
-CMD ["./main"]
+CMD ["./hello-world"]
